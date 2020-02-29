@@ -10,19 +10,32 @@ const MainContainer = () => {
             .then(res => res.json())
             .then((data) => {
                 setPokemon(data.results)
-                setSinglePokemon(data.results[0])
-            })
-
+            }).then(
+                fetch(`https://pokeapi.co/api/v2/pokemon-form/1`)
+                    .then(res => res.json())
+                    .then(data => setSinglePokemon(data)
+                    ))
     }, [])
 
     const nextPokemon = () => {
         const pokeIndex = findIndex();
-        setSinglePokemon(pokemon[pokeIndex + 1])
+        fetch(`https://pokeapi.co/api/v2/pokemon-form/${pokeIndex + 2}`)
+            .then(res => res.json())
+            .then(data => {
+                setSinglePokemon(data)
+            }
+            )
     }
+
 
     const prevPokemon = () => {
         const pokeIndex = findIndex();
-        setSinglePokemon(pokemon[pokeIndex - 1])
+        fetch(`https://pokeapi.co/api/v2/pokemon-form/${pokeIndex}`)
+            .then(res => res.json())
+            .then(data => {
+                setSinglePokemon(data)
+            }
+            )
     }
 
     const findIndex = () => {

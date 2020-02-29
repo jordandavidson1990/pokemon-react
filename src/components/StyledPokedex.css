@@ -1,0 +1,11 @@
+.hide{
+visibility: hidden;}
+
+.pokedex{
+    margin: 25%;
+    align-items: center;
+    text-align: center;
+    background: grey;
+    border: 20px red solid;
+    padding: 10px;
+}
