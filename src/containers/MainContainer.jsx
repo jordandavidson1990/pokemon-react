@@ -38,6 +38,22 @@ const MainContainer = () => {
             )
     }
 
+    const clickPokemon = (clickedPokemon) => {
+        let foundPokemonIndex = null;
+
+        pokemon.forEach((poke, index) => {
+            if (poke.name === clickedPokemon.name) {
+                foundPokemonIndex = index + 1
+            }
+        })
+        fetch(`https://pokeapi.co/api/v2/pokemon-form/${foundPokemonIndex}`)
+            .then(res => res.json())
+            .then(data => {
+                setSinglePokemon(data)
+            }
+            )
+    }
+
     const findIndex = () => {
         let pokeIndex = null;
         pokemon.forEach((x, index) => {
@@ -55,6 +71,7 @@ const MainContainer = () => {
                 singlePokemon={singlePokemon}
                 nextPokemon={nextPokemon}
                 prevPokemon={prevPokemon}
+                clickPokemon={clickPokemon}
             />
         </>
     )

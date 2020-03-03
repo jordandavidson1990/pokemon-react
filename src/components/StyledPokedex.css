@@ -1,5 +1,6 @@
 .hide{
-visibility: hidden;}
+visibility: hidden;
+}
 
 .pokedex{
     margin: 25%;
@@ -7,5 +8,12 @@ visibility: hidden;}
     text-align: center;
     background: grey;
     border: 20px red solid;
-    padding: 10px;
+    display: flex;
+    width: 50vw;
+}
+
+.single-pokemon{
+    border-right: 2px solid;
+    padding: 9px;
+    width: 25vw;
 }

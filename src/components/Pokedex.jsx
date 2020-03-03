@@ -1,12 +1,14 @@
 import React from 'react';
 import SinglePokemon from './SinglePokemon';
+import PokemonList from './PokemonList';
 import './StyledPokedex.css';
 
 const Pokedex = ({
     pokemon,
     singlePokemon,
     nextPokemon,
-    prevPokemon
+    prevPokemon,
+    clickPokemon
 }) => {
 
     function handleNext() {
@@ -36,10 +38,17 @@ const Pokedex = ({
 
     return (
         <div className="pokedex">
-            <SinglePokemon
-                singlePokemon={singlePokemon} />
-            <button onClick={handleNext} className={getPlusButtonClass()} >+</button>
-            <button onClick={handlePrev} className={getButtonClass() ? 'hide' : null}>-</button>
+            <div className="single-pokemon">
+                <SinglePokemon
+                    singlePokemon={singlePokemon} />
+                <button onClick={handlePrev} className={getButtonClass() ? 'hide' : null}>
+                    &#8826;</button>
+                <button onClick={handleNext} className={getPlusButtonClass()} >&#8827;</button>
+
+            </div>
+            <PokemonList
+                pokemon={pokemon}
+                clickPokemon={clickPokemon} />
         </div>
     )
 }

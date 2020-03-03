@@ -1,0 +1,20 @@
+.pokemon-list{
+    max-height: 20vh;
+    overflow: scroll;
+    
+}
+
+ul{
+    list-style: none;
+    text-align: left;
+}
+
+li{
+    cursor: pointer;
+}
+
+li:hover{
+border: 2px red solid;
+background: whitesmoke;
+
+}
